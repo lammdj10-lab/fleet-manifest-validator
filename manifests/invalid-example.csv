@@ -1,0 +1,4 @@
+vehicle_id,vehicle_type,status
+HMMWV-004,HMMWV,operational
+MTVR-005,MTVR,unknown
+HMMWV-004,HMMWV,maintenance
