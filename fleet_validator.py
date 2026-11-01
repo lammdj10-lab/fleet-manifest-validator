@@ -4,7 +4,7 @@ import sys
 from pathlib import Path
 
 REQUIRED_FIELDS = {"vehicle_id", "vehicle_type", "status"}
-
+VALID_STATUSES = {"operational", "maintenance", "out_of_service"}
 def validate_manifest(path):
     errors = []
     seen_ids = set()
@@ -16,6 +16,9 @@ def validate_manifest(path):
             return ["Missing required columns: " + ", ".join(sorted(REQUIRED_FIELDS))]
 
         for line, row in enumerate(reader, start=2):
+            if (row.get("status") or "").strip() not in VALID_STATUSES:
+                errors.append(f"Line {line}: invalid vehicle status")
+
             vehicle_id = (row.get("vehicle_id") or "").strip()
 
             if not vehicle_id:
