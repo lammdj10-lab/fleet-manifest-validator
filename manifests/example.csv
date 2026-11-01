@@ -1,0 +1,4 @@
+vehicle_id,vehicle_type,status
+HMMWV-001,HMMWV,operational
+MTVR-002,MTVR,maintenance
+JLTV-003,JLTV,operational
